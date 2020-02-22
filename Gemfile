@@ -33,8 +33,8 @@ group :development, :test do
   # Use RSpec for specs
   gem 'rspec-rails', '>= 3.5.0'
 
-  # Use Factory Girl for generating random test data
-  gem 'factory_girl_rails'
+  # Use factory_bot for generating random test data
+  gem 'factory_bot'
 end
 
 group :development do
