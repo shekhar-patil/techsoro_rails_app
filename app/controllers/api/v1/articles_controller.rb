@@ -25,9 +25,9 @@ class Api::V1::ArticlesController < ApplicationController
 
   def create
     @article = Article.create(article_params)
-    if @article.valid?
-      payload = { article_id: @article.id }
-      token = encode_token(payload)
+    @article.user_id = session_user.id
+
+    if @article.save
       respond_to do |format|
         format.html
         format.json { render json: { article: @article } , status: :created }

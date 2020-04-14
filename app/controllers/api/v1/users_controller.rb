@@ -25,7 +25,7 @@ class Api::V1::UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    if @user.valid?
+    if @user.save
       payload = { user_id: @user.id }
       token = encode_token(payload)
       respond_to do |format|
