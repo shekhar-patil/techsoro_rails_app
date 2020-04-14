@@ -40,7 +40,7 @@ class Api::V1::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
-    if @user.update(user_params)
+    if @user.update!(user_params)
       respond_to do |format|
         format.html
         format.json { render json: @user, status: :created }

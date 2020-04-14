@@ -39,8 +39,7 @@ class Api::V1::ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-
-    if @article.update(article_params)
+    if @article.update!(article_params)
       respond_to do |format|
         format.html
         format.json { render json: @article, status: :created }
